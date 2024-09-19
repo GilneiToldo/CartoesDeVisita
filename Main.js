@@ -6,7 +6,7 @@ const dados = [
         nome: 'Émerson Rodrigues',
         cargo: 'Vendedor Externo',
         email: 'emerson@servylab.com.br',
-        telefone: '5551980636919'
+        telefone: '5551992414310'
     },
     {
         nome: 'Anelise Souza',
