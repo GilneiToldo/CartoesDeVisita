@@ -148,26 +148,14 @@ function checkHash() {
         if (navigator.share) {
             try {
                 await navigator.share({
-                    title: 'Título da Página',
-                    text: 'Confira este conteúdo!',
+                    title: `Servylab - ${dados[u].nome}`,
+                    text: 'Acesse meu cartão virtual interativo clicando no link!',
                     url: window.location.href,
                 });
-                console.log('Compartilhamento realizado com sucesso.');
             } catch (error) {
                 console.error('Erro ao compartilhar:', error);
             }
-        } else {
-            alert('API de compartilhamento não é suportada neste navegador. Copiando o link para a área de transferência.');
-
-            const tempInput = document.createElement('input');
-            document.body.appendChild(tempInput);
-            tempInput.value = window.location.href;
-            tempInput.select();
-            document.execCommand('copy');
-            document.body.removeChild(tempInput);
-
-            alert('Link copiado para a área de transferência: ' + window.location.href);
-        }
+        } 
     });
 
     addCard.appendChild(profileCard)
