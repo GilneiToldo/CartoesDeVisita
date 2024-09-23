@@ -1,68 +1,78 @@
-// document.getElementById("saveCard").addEventListener("click", function () {
+const popup = document.getElementById("popup");
+const closePopupBtn = document.getElementById("closePopupBtn");
+const imageContainer = document.getElementById("imageContainer");
 
-// });
+const addCard = document.getElementById('addCard');
+const hash = window.location.hash;
+
 const dados = [
     {
         nome: 'Émerson Rodrigues',
-        cargo: 'Vendedor Externo',
+        cargo: 'Consultor de Vendas',
         email: 'emerson@servylab.com.br',
         telefone: '5551992414310'
     },
     {
-        nome: 'Anelise Souza',
-        cargo: 'Analista de Marketing',
-        email: 'anelise@servylab.com.br',
-        telefone: '5551980636918'
+        nome: 'Nicolas Toldo',
+        cargo: 'Consultora de Vendas',
+        email: 'nick.servylab@gmail.com',
+        telefone: '5551992504298'
     },
     {
-        nome: 'Novo Usuário',
-        cargo: 'Novo Cargo',
-        email: 'novo@servylab.com.br',
+        nome: 'Gabriela Ribeiro',
+        cargo: 'Consultora de Vendas',
+        email: 'gabriela@servylab.com.br',
         telefone: '5551990000000'
     },
     {
         nome: 'Gilnei Toldo',
-        cargo: 'CEO',
+        cargo: 'CEO/Diretor',
         email: 'gilnei@servylab.com.br',
         telefone: '5551992420250'
+    },
+    {
+        nome: 'Dóris Kauer Toldo',
+        cargo: 'CEO/Diretor',
+        email: 'doris@servylab.com.br',
+        telefone: '5551992421762'
     }
 ];
 
 function checkHash() {
-    const addCard = document.getElementById('addCard');
-    const hash = window.location.hash; // Obtém o valor após o #
-    let u = 0; // Índice padrão
+    let u = 0;
 
-    // Usar switch-case para definir o índice do usuário com base no hash
     switch (hash) {
         case '#emerson':
             u = 0;
             break;
-        case '#anelise':
+        case '#nicolas':
             u = 1;
             break;
-        case '#nova':
+        case '#gabriela':
             u = 2;
             break;
         case '#gilnei':
             u = 3;
             break;
+        case '#doris':
+            u = 4;
+            break;
         default:
-            u = 3; 
+            u = 3;
             break;
     }
 
     const profileCard = document.createElement('div');
     profileCard.classList.add('card')
     profileCard.innerHTML = `
-        <div class="pfPhoto" style="background-image: url('./assets/${dados[u].nome}.jpeg');"></div>
+        <div class="pfPhoto" style="background-image: url('./assets/photos/${dados[u].nome}.jpeg');"></div>
         <div class="nomeCargo">
             <h1>${dados[u].nome}</h1>
             <h2>${dados[u].cargo}</h2>
         </div>
 
         <div class="lineContainer">
-            <img src="./assets/icons/qrCode.svg" alt="">
+            <img src="./assets/icons/qrCode.svg" alt="" id="qrCodeBt">
             <button class="saveBt" id="saveCard">Salvar cartão</button>
             <img src="./assets/icons/share.svg" alt="" id="shareBt">
         </div>
@@ -114,40 +124,59 @@ function checkHash() {
             </a>
         </div>
     `;
+    profileCard.querySelector('#qrCodeBt').addEventListener("click", function () {
+        imageContainer.innerHTML = '';
+        
+        const img = document.createElement('img');
+        img.src = `./assets/qrCode/${dados[u].nome}.png`;
+        img.alt = 'Imagem no Pop-up';
+        imageContainer.appendChild(img);
+        popup.style.display = "flex"; 
+    });
+
+    popup.addEventListener("click", function (event) {
+        if (event.target === popup) {
+            popup.style.display = "none";
+        }
+    });
+
+    closePopupBtn.addEventListener("click", function () {
+        popup.style.display = "none";
+    });
 
     profileCard.querySelector('#shareBt').addEventListener('click', async () => {
         if (navigator.share) {
-            // Se o navegador suporta a Web Share API
             try {
                 await navigator.share({
                     title: 'Título da Página',
                     text: 'Confira este conteúdo!',
-                    url: window.location.href, // Compartilhar a URL atual da página
+                    url: window.location.href,
                 });
                 console.log('Compartilhamento realizado com sucesso.');
             } catch (error) {
                 console.error('Erro ao compartilhar:', error);
             }
         } else {
-            // Fallback para navegadores que não suportam a Web Share API
             alert('API de compartilhamento não é suportada neste navegador. Copiando o link para a área de transferência.');
-    
-            // Copiar o link para a área de transferência
+
             const tempInput = document.createElement('input');
             document.body.appendChild(tempInput);
             tempInput.value = window.location.href;
             tempInput.select();
             document.execCommand('copy');
             document.body.removeChild(tempInput);
-    
+
             alert('Link copiado para a área de transferência: ' + window.location.href);
         }
-      });
+    });
 
-      addCard.appendChild(profileCard)
+    addCard.appendChild(profileCard)
 
 }
 
 window.onload = checkHash;
 window.onhashchange = checkHash;
+
+
+
 
