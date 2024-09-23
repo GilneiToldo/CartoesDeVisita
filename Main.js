@@ -62,6 +62,8 @@ function checkHash() {
             break;
     }
 
+    document.title = dados[u].nome;
+
     const profileCard = document.createElement('div');
     profileCard.classList.add('card')
     profileCard.innerHTML = `

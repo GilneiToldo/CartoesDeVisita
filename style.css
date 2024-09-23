@@ -101,6 +101,7 @@ main {
 
                 border: white 1px solid;
                 color: whitesmoke;
+                font-size: 1rem;
                 background-color: rgb(29, 29, 29);
             }
 
@@ -171,7 +172,8 @@ main {
                 background-color: aliceblue;
 
                 img{
-                    width: 8vw;
+                    /* width: 8vw; */
+                    height: 2em;
                     margin: 0 6vw;
                 }
 
