@@ -75,7 +75,19 @@ function checkHash() {
 
         <div class="lineContainer">
             <img src="./assets/icons/qrCode.svg" alt="" id="qrCodeBt">
-            <button class="saveBt" id="saveContact">Salvar cartão</button>
+            <a class="saveBt" id="saveContact" href="https://wa.me/${dados[u].telefone}?text=${encodeURIComponent(`Passando só para salvar contato:
+${dados[u].nome} - ${dados[u].cargo}
+Email: ${dados[u].email}
+
+Link para instagram:
+https://www.instagram.com/servylab/
+
+Link para o website:
+https://www.servylab.com.br
+
+Entre na nossa lista de transmissão para receber ofertas e novidades:
+https://wa.me/message/GBQYRQSHKM5NK1`)
+}">Salvar cartão</a>
             <img src="./assets/icons/share.svg" alt="" id="shareBt">
         </div>
 
@@ -160,35 +172,8 @@ function checkHash() {
         } 
     });
 
-    profileCard.querySelector('#saveContact').addEventListener('click', function() {
-        // Informações de contato
-        const contactName = 'João Silva';
     
-        // Criar o conteúdo do vCard
-        const vCardData = `
-    BEGIN:VCARD
-    VERSION:3.0
-    FN:${dados[u].nome}
-    TEL;TYPE=CELL:${dados[u].telefone}
-    EMAIL:${dados[u].email}
-    ORG:Servylab
-    END:VCARD
-        `;
     
-        // Criar um arquivo Blob com o conteúdo do vCard
-        const blob = new Blob([vCardData], { type: 'text/vcard' });
-    
-        // Criar um link temporário para download
-        const link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
-        link.download = `${dados[u].nome}.vcf`; // Nome do arquivo que será baixado
-    
-        // Simular o clique no link para iniciar o download
-        link.click();
-    
-        // Liberar o objeto URL criado
-        URL.revokeObjectURL(link.href);
-    });
 
     addCard.appendChild(profileCard)
 
