@@ -147,6 +147,10 @@ main {
             border: none;
         }
 
+        label {
+            font-size: 1em;
+        }
+
         .links{
             width: auto;
 
@@ -196,9 +200,6 @@ button.homeBt {
 
     background-color: rgba(255, 255, 255, 0.325);
 }
-
-
-
 
 .popup {
     display: none;

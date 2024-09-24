@@ -14,7 +14,7 @@ const dados = [
     },
     {
         nome: 'Nicolas Toldo',
-        cargo: 'Consultora de Vendas',
+        cargo: 'CTO/CII',
         email: 'nick.servylab@gmail.com',
         telefone: '5551992504298'
     },
@@ -22,17 +22,17 @@ const dados = [
         nome: 'Gabriela Ribeiro',
         cargo: 'Consultora de Vendas',
         email: 'gabriela@servylab.com.br',
-        telefone: '5551990000000'
+        telefone: '000000000000'
     },
     {
         nome: 'Gilnei Toldo',
-        cargo: 'CEO/Diretor',
+        cargo: 'CEO',
         email: 'gilnei@servylab.com.br',
         telefone: '5551992420250'
     },
     {
         nome: 'Dóris Kauer Toldo',
-        cargo: 'CEO/Diretor',
+        cargo: 'Diretora',
         email: 'doris@servylab.com.br',
         telefone: '5551992421762'
     }
