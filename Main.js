@@ -75,7 +75,8 @@ function checkHash() {
 
         <div class="lineContainer">
             <img src="./assets/icons/qrCode.svg" alt="" id="qrCodeBt">
-            <a class="saveBt" id="saveContact" href="https://wa.me/${dados[u].telefone}?text=${encodeURIComponent(`Passando só para salvar contato:
+            <a class="saveBt" id="saveContact" href="https://wa.me/${dados[u].telefone}?text=${encodeURIComponent(`
+Passando só para salvar o contato:
 ${dados[u].nome} - ${dados[u].cargo}
 Email: ${dados[u].email}
 
