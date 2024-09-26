@@ -22,7 +22,7 @@ const dados = [
         nome: 'Gabriela Ribeiro',
         cargo: 'Consultora de Vendas',
         email: 'gabriela@servylab.com.br',
-        telefone: '000000000000'
+        telefone: '5548988220371'
     },
     {
         nome: 'Gilnei Toldo',
@@ -141,7 +141,6 @@ https://wa.me/message/GBQYRQSHKM5NK1`)
     `;
     profileCard.querySelector('#qrCodeBt').addEventListener("click", function () {
         imageContainer.innerHTML = '';
-        
         const img = document.createElement('img');
         img.src = `./assets/qrCode/${dados[u].nome}.png`;
         img.alt = 'Imagem no Pop-up';
@@ -173,11 +172,7 @@ https://wa.me/message/GBQYRQSHKM5NK1`)
         } 
     });
 
-    
-    
-
     addCard.appendChild(profileCard)
-
 }
 
 window.onload = checkHash;
