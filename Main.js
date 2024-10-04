@@ -63,7 +63,7 @@ function checkHash() {
     }
 
     document.title = dados[u].nome;
-
+    
     const profileCard = document.createElement('div');
     profileCard.classList.add('card')
     profileCard.innerHTML = `
@@ -76,18 +76,9 @@ function checkHash() {
         <div class="lineContainer">
             <img src="./assets/icons/qrCode.svg" alt="" id="qrCodeBt">
             <a class="saveBt" id="saveContact" href="https://wa.me/${dados[u].telefone}?text=${encodeURIComponent(`
-Passando só para salvar o contato:
-${dados[u].nome} - ${dados[u].cargo}
-Email: ${dados[u].email}
-
-Link para instagram:
-https://www.instagram.com/servylab/
-
-Link para o website:
-https://www.servylab.com.br
-
-Entre na nossa lista de transmissão para receber ofertas e novidades:
-https://wa.me/message/GBQYRQSHKM5NK1`)
+Oi, passando para salvar o contato!!
+https://gilneitoldo.github.io/CartoesDeVisita/${hash}
+`)
 }">Salvar cartão</a>
             <img src="./assets/icons/share.svg" alt="" id="shareBt">
         </div>
