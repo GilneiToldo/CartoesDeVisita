@@ -22,7 +22,7 @@ const dados = [
         nome: 'Gabriela Ribeiro',
         cargo: 'Consultora de Vendas',
         email: 'gabriela@servylab.com.br',
-        telefone: '5548988220371'
+        telefone: '5548988053642'
     },
     {
         nome: 'Gilnei Toldo',
